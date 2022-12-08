@@ -129,9 +129,6 @@ int main(int argc, char **argv){
 
   char request_str[REQUEST_SIZE];
   sprintf(request_str, "%s %s %s\r\nHost: %s\r\n\r\n", method, hostpath, SERVNAME_STR, hostname);
-
-  log("REQUEST:\n%s\n",request_str);
-
   /* 
    * INITIALIZE VARIABLES
    */
@@ -190,6 +187,7 @@ int main(int argc, char **argv){
    * MAKE RESTfull request 
    */
   log("making RESTfull: %s / %s %s\n", method, hostname, SERVNAME_STR);
+  log("REQUEST:\n%s\n",request_str);
   send_ret = send(sockfd, request_str, strlen(request_str),0);
   wrap_log_sys_err();
   if(send_ret==-1){
@@ -212,7 +210,6 @@ int main(int argc, char **argv){
    * LOG RESPONSE 
   */
   log( "RESPONSE, size[%ld]:\n%s\n", byte_count, buff);
-
   /* 
    * FINALIZE 
    */
