@@ -12,5 +12,5 @@ make main
 Usage:
 
 ```
-./main.o
+./build/main.o
 ```
