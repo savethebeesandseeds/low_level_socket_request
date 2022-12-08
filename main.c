@@ -125,9 +125,10 @@ int main(int argc, char **argv){
   const char* method = "GET";
   const char* hostport = "80";
   const char* hostname = "www.example.com";
+  const char* hostpath = "/";
 
   char request_str[REQUEST_SIZE];
-  sprintf(request_str, "%s / %s\r\nHost: %s\r\n\r\n", method, SERVNAME_STR, hostname);
+  sprintf(request_str, "%s %s %s\r\nHost: %s\r\n\r\n", method, hostpath, SERVNAME_STR, hostname);
 
   log("REQUEST:\n%s\n",request_str);
 
